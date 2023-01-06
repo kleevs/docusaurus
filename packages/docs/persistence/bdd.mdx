@@ -1,0 +1,39 @@
+---
+sidebar_position: 1
+---
+
+# Base de donnée
+
+## Code First
+
+Le code first est une approche de développement de base de données qui consiste à créer les modèles de données de votre application en utilisant des classes de code, puis à utiliser ces modèles pour générer la base de données. Cette approche est gérée par Entity Framework Core, un framework de persistance de données qui facilite la gestion des données dans votre application.
+
+Pour utiliser le code first avec Entity Framework Core, vous devez d'abord créer les classes de modèle de votre application. Ces classes doivent être décorées avec des attributs de données Entity Framework pour spécifier comment elles doivent être mappées à la base de données. Vous pouvez également créer des relations entre les classes en utilisant des propriétés de navigation.
+
+Une fois que vous avez créé vos classes de modèle, vous devez créer une classe de contexte de données qui étend la classe DbContext d'Entity Framework. Cette classe sert de pont entre votre modèle de données et la base de données, et contient des propriétés DbSet pour chaque type de modèle dans votre application.
+
+Pour générer la base de données à partir de vos modèles de données, vous devez utiliser la commande "Add-Migration" de Entity Framework dans la console du gestionnaire de package. Cela génère un fichier de migration qui contient les instructions nécessaires pour créer la base de données à partir de vos modèles. Vous pouvez ensuite utiliser la commande "Update-Database" pour appliquer la migration et créer la base de données.
+
+Le code first avec Entity Framework Core vous permet de gérer facilement la persistance de données dans votre application en utilisant des modèles de code. Cette approche vous permet de créer rapidement une base de données à partir de vos modèles de données et de mettre à jour facilement la base de données en fonction des modifications apportées à vos modèles.
+
+### Commande utilise
+
+```cmd title="Installation de l'outil ef core"
+dotnet tool install --global dotnet-ef
+```
+
+```cmd title="Création d'une migragtion"
+dotnet ef migrations add <nom de la migration>
+```
+
+```cmd title="Suppression de la dernière migration"
+dotnet ef migrations remove
+```
+
+```cmd title="Mise à jour de la base de donnée"
+dotnet ef database update
+```
+
+```cmd title="Création d'un script sql à partir des migrations"
+dotnet ef migrations script --output <output> --idempotent
+```

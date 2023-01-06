@@ -1,0 +1,15 @@
+{
+  "name": "docu",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "yarn workspace @docu/website start",
+    "build": "yarn workspace @docu/website build",
+    "deploy": "yarn workspace @docu/website deploy",
+    "clear": "yarn workspace @docu/website clear",
+    "serve": "yarn workspace @docu/website serve"
+  },
+  "workspaces": [
+    "packages/**"
+  ]
+}

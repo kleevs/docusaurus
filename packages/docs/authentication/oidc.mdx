@@ -1,0 +1,21 @@
+---
+sidebar_position: 1
+---
+
+# OIDC
+
+OpenID Connect est un protocole d'authentification basé sur OAuth 2.0 qui permet aux utilisateurs de s'authentifier auprès d'un fournisseur d'identité (IdP) en utilisant un compte d'utilisateur existant. Il s'agit d'une solution simple et sécurisée pour l'authentification d'utilisateurs dans les applications Web et mobiles.
+
+Pour utiliser OpenID Connect, l'application cliente doit d'abord s'enregistrer auprès du fournisseur d'identité en fournissant des informations telles que le nom de l'application et les URL de redirection autorisées. Lorsque l'utilisateur souhaite s'authentifier auprès de l'application, il est redirigé vers le fournisseur d'identité pour saisir ses informations de connexion. Si l'authentification réussit, le fournisseur d'identité envoie un jeton d'accès à l'application cliente, qui peut être utilisé pour accéder aux ressources protégées par le fournisseur d'identité.
+
+OpenID Connect offre plusieurs avantages par rapport aux autres protocoles d'authentification. Tout d'abord, il est basé sur OAuth 2.0, qui est un protocole bien établi et largement utilisé. En outre, il fournit une couche d'abstraction supplémentaire qui rend l'intégration avec différents fournisseurs d'identité plus facile. Enfin, il fournit un mécanisme de découverte de l'identité qui permet aux applications de découvrir les informations de base sur le fournisseur d'identité et sur l'utilisateur authentifié, ce qui simplifie l'intégration.
+
+En résumé, OpenID Connect est un protocole d'authentification fiable et facile à utiliser qui permet aux utilisateurs de s'authentifier auprès de n'importe quel fournisseur d'identité compatible avec OAuth 2.0. Il offre une couche d'abstraction supplémentaire qui rend l'intégration avec différents fournisseurs d'identité plus facile et fournit un mécanisme de découverte de l'identité qui simplifie l'intégration.
+
+Voici comment cela fonctionne en gros :
+
+1. L'utilisateur accède à une application qui nécessite une authentification.
+2. L'application redirige l'utilisateur vers l'IdP pour s'authentifier.
+3. L'utilisateur entre ses informations d'identification et l'IdP vérifie son identité.
+4. Si l'authentification est réussie, l'IdP génère un jeton d'accès et le renvoie à l'application.
+5. L'application vérifie la validité du jeton d'accès auprès de l'IdP et accorde à l'utilisateur l'accès à ses ressources en fonction de ses autorisations.
