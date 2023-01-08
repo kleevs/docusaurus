@@ -2,5 +2,8 @@
   "name": "@docu/docs",
   "version": "1.0.0",
   "private": true,
-  "files": ["."]
+  "files": ["."],
+  "dependencies": {
+    "@docu/diagram": "1.0.0"
+  }
 }

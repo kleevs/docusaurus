@@ -1,0 +1,47 @@
+---
+sidebar_position: 1
+---
+
+import { Diagram } from '@docu/diagram';
+
+# Architecture Hexagonale
+
+L'architecture hexagonale (aussi appelée "hexagonal architecture" ou "ports and adapters architecture") est un pattern d'architecture logicielle qui vise à séparer les différentes parties d'une application en plusieurs couches de responsabilités. Le but de cette architecture est de faciliter le développement, le test et le déploiement des applications en les rendant plus modulaires et plus indépendantes des autres parties de l'application.
+
+Selon l'architecture hexagonale, une application est composée de deux types de couches:
+
+- La couche "métier" (ou "domaine"): cette couche contient la logique métier de l'application et est indépendante des autres couches. Elle est représentée par un hexagone au centre de l'architecture.
+- Les couches "interface": ces couches sont chargées de l'interface avec l'extérieur de l'application. Elles permettent à l'application de communiquer avec d'autres systèmes ou d'interagir avec l'utilisateur. Elles sont représentées par les côtés de l'hexagone.
+
+Il existe généralement plusieurs couches "interface" dans une application, chacune étant responsable d'une fonctionnalité spécifique (par exemple, l'interface avec la base de données, l'interface avec le Web, etc.). Ces couches sont séparées de la couche "métier" par des "ports", qui sont des points d'accès contrôlés permettant à la couche "métier" de communiquer avec les couches "interface". Les couches "interface" sont elles-mêmes séparées des autres systèmes ou des utilisateurs par des "adaptateurs", qui sont des modules responsables de la traduction entre les différents formats de données utilisés par l'application et les formats utilisés par les autres systèmes ou utilisateurs.
+
+L'avantage de l'architecture hexagonale est qu'elle permet de développer et de tester chaque couche de manière indépendante, ce qui rend le processus de développement plus rapide et plus facile. De plus, cette architecture permet de remplacer facilement une couche "interface" sans avoir à toucher à la couche "métier", ce qui peut être très utile lorsque vous souhaitez mettre à jour ou remplacer une fonctionnalité de votre application.
+
+:::info Présentation en vidéo
+Voici une excellente présentation de l'architecture hexagonale en video [Coder sans peur du changement, avec la "même pas mal !" architecture hexagonale
+](https://www.youtube.com/watch?v=wZ7cxcU4iPE)
+:::
+
+## En pratique
+
+De manière générale lorsque vous développez une classe (en C# par exemple), celle-ci possèdera 2 types de dépendances :
+
+1. Elle pourra dépendre d'interfaces ou classes qu'elle **utilise**. 
+2. Elle pourra dépendre d'interfaces ou classes qu'elle **implémente ou hérite**. 
+
+Les dépendances du premier type possèdent un lien plus fort que celles du second du fait que si elles ne sont pas résolu alors la classe en question fonctionnera pas. 
+De ce fait il est plus interressant de placer la définition des interfaces du premier type dans le même module que la classe qui les utilise.
+
+Par exemple, pour un projet organisé en architecture n-tiers comme ci-dessous :
+<Diagram id='example-ntiers' type="graph TD">{`
+    W[Web Module] --> BLL[<div>Business Module</div><div>IServiceA</div><div>ServiceA : IServiceA</div>]
+    BLL --> DL[<div>Data Layer Module</div><div>IDataLayer</div><div>DataLayer : IDataLayer</div>]
+    BLL --> SMTP[<div>SMTP Module</div><div>ISmtp</div><div>Smtp: ISmtp</div>]
+`}</Diagram>
+
+Celà donnerait :
+<Diagram id='example-hexa' type="graph TD">{`
+    W[<div>Web Module</div><div>IServiceA</div>] --> BLL[<div>Business Module</div><div>IDataLayer</div><div>ISmtp</div><div>ServiceA : IServiceA</div>]
+    BLL --> DL[<div>Data Layer Module</div><div>DataLayer : IDataLayer</div>]
+    BLL --> SMTP[<div>SMTP Module</div><div>Smtp: ISmtp</div>]
+`}</Diagram>

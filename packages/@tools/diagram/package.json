@@ -1,0 +1,22 @@
+{
+  "name": "@docu/diagram",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "swc ./src --out-dir dist --copy-files && tsc --declaration && tsc-alias",
+    "build:watch": "concurrently \"swc ./src --out-dir dist --copy-files -w\" \"tsc --declaration --watch\" \"tsc-alias -w\""
+  },
+  "dependencies": {
+    "jointjs": "3.6.5",
+    "mermaid": "9.3.0"
+  },
+  "devDependencies": {
+    "@swc/cli": "^0.1.57",
+    "@swc/core": "^1.3.18",
+    "typescript": "4.8.4",
+    "concurrently": "^7.5.0",
+    "tsc-alias": "^1.7.1"
+  }
+}

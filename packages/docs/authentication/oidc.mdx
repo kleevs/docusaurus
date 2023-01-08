@@ -2,6 +2,8 @@
 sidebar_position: 1
 ---
 
+import { Diagram } from '@docu/diagram';
+
 # OIDC
 
 OpenID Connect est un protocole d'authentification basé sur OAuth 2.0 qui permet aux utilisateurs de s'authentifier auprès d'un fournisseur d'identité (IdP) en utilisant un compte d'utilisateur existant. Il s'agit d'une solution simple et sécurisée pour l'authentification d'utilisateurs dans les applications Web et mobiles.
@@ -19,3 +21,14 @@ Voici comment cela fonctionne en gros :
 3. L'utilisateur entre ses informations d'identification et l'IdP vérifie son identité.
 4. Si l'authentification est réussie, l'IdP génère un jeton d'accès et le renvoie à l'application.
 5. L'application vérifie la validité du jeton d'accès auprès de l'IdP et accorde à l'utilisateur l'accès à ses ressources en fonction de ses autorisations.
+
+<Diagram id='sequence' type='sequenceDiagram'>{`
+    participant Utilisateur
+    participant Application
+    participant Serveur d'authentification (ADFS)
+    Utilisateur->>Application: 1
+    Application->>Utilisateur: 2
+    Utilisateur->>Serveur d'authentification (ADFS): 3
+    Serveur d'authentification (ADFS)->>Utilisateur: 4
+    Utilisateur->>Application: 5
+`}</Diagram>
