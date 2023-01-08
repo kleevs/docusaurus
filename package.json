@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "start": "yarn workspace @docu/website start",
+    "diagram:build": "yarn workspace @docu/diagram build",
     "build": "yarn workspace @docu/website build",
     "deploy": "yarn workspace @docu/website deploy",
     "clear": "yarn workspace @docu/website clear",

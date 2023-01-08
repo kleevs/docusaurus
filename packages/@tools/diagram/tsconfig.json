@@ -14,7 +14,7 @@
     "jsx": "react",
     "declaration": true,
     "declarationDir": "dist",
-    "module": "esnext",
+    "module": "commonjs",
     "target": "ES2021",
     "paths": {
       "@": ["index"],

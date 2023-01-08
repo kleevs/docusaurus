@@ -14,19 +14,14 @@ export function Diagram({id, type, children}: {
     const ref = useRef<HTMLDivElement>();
 
     useEffect(() => {
-        console.log(children)
         const array = (children instanceof Array ? children: [children]) as string[];
         const text = [type, '\n', ...array].reduce((str, current) => `${str}${getString(current)}`);
-        console.log(text);
+        console.log(text)
         mermaid.render(id, text, (svgCode) => ref.current!.innerHTML = svgCode);
     }, [id, children, ref])
     return <div ref={ref as any} />
 }
 
 function getString(text: any) {
-    if (typeof text === 'string') {
-        return text;
-    }
-
-    return `"<div id='${new Date().getTime()}-${Math.round(Math.random() * 1000)}'></div>"`;
+    return `${text}`;
 }

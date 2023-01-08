@@ -1,0 +1,25 @@
+---
+sidebar_position: 1
+---
+
+import { Diagram } from '@docu/diagram';
+
+# Get Started
+
+test
+
+:::diagram
+
+test
+
+toto
+
+logicielle
+
+:::
+
+<Diagram id='example-ntiers' type="graph TD">{`
+    W[Web Module] --> BLL[<div>Business Module</div><div>IServiceA</div><div>ServiceA : IServiceA</div>]
+    BLL --> DL[<div>Data Layer Module</div><div>IDataLayer</div><div>DataLayer : IDataLayer</div>]
+    BLL --> SMTP[<div>SMTP Module</div><div>ISmtp</div><div>Smtp: ISmtp</div>]
+`}</Diagram>
